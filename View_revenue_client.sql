@@ -1,0 +1,2 @@
+CREATE VIEW vue_revenue_client AS
+SELECT c.CustomerName, c.Country, SUM(p.Price * ord.Quantity) AS revenue FROM customers c INNER JOIN orders o ON o.CustomerID = c.CustomerID INNER JOIN ordersdetails ord ON o.OrderID = ord.OrderID JOIN products p ON p.ProductID = ord.ProductID GROUP BY c.CustomerName, c.Country
